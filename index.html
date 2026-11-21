@@ -1,241 +1,182 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>東雲的秘密基地</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="renderer" content="webkit">
-  <meta name="Keywords" content="lolirbq,Lab,项目,東雲智希,实验室 ">
-  <meta name="description" content="这是由東雲智希建立的一个项目索引" />
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
-  <link href="css/style.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="css/loader.min.css">
-  <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "js/hm.js?ce96aff511140f5d1323dfd217eed37e";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
+  <meta name="description" content="東雲智希的个人实验室 —— 一些小工具、小实验，以及一些不知道为什么存在的东西。">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="/img/site-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/webf-ui.css">
+  <link rel="stylesheet" href="/css/site.css">
 </head>
+<body class="nb">
+<header class="nb-navbar">
+  <div class="nb-navbar__inner">
+    <a class="nb-navbar__brand" href="/">
+      <img class="nb-navbar__logo" src="/img/site-icon.svg" alt="" width="32" height="32">
+      <span>東雲的秘密基地</span>
+    </a>
+    <nav class="nb-navbar__menu" aria-label="主导航">
+      <a href="/">首页</a>
+      <a href="/#projects">项目</a>
+      <a href="/ui/">组件</a>
+      <a href="https://github.com/nd002723" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="nb-navbar__actions">
+      <button class="nb-toggle" type="button" data-theme-toggle aria-label="切换主题">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"></path>
+        </svg>
+      </button>
+      <button class="nb-toggle nb-navbar__toggle" type="button" data-drawer-toggle aria-expanded="false" aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <path d="M4 8h16M4 12h16M4 16h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-<body>
-<script type="text/javascript">         
-    // 等待所有加载
-    $(window).load(function(){
-        $('body').addClass('loaded');
-        $('#loader-wrapper .load_title').remove();
-    }); 
-</script>   
-<div id="loader-wrapper">
-    <div id="loader"></div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-    <div class="load_title">神秘的大门即将开启<br><span>by 東雲智希</span></div>
+<div class="nb-mobile-menu" data-open="false">
+  <a href="/">首页</a>
+  <a href="/#projects">项目</a>
+  <a href="/ui/">组件</a>
+  <a href="https://github.com/nd002723" target="_blank" rel="noopener">GitHub</a>
 </div>
-  <!--[if IE]>
-<div class="unsupported-browser">
-<div class="container clearfix">
-<p>We recommend upgrading to the latest <a href="http://windows.microsoft.com/ie">Internet Explorer</a>, <a href="https://chrome.google.com">Google Chrome</a>, or <a href="https://mozilla.org/firefox/">Firefox</a>.</p>
-<p>If you are using IE 11, make sure you <a href="http://windows.microsoft.com/en-US/windows7/webpages-look-incorrect-in-Internet-Explorer">turn off "Compatibility View"</a>.thanks!</p>
-</div>
-</div>
-<![endif]-->
-  <div class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-	  </div>
-      <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active">
-            <a href="https://nd002723.github.io">Home</a>
-          </li>
-          <li>
-            <a href="https://nd002723.github.io/about">About</a>
-          </li>
-        </ul>
+
+<main>
+  <section class="nb-wrap site-hero">
+    <a class="nb-hero-badge" href="https://github.com/nd002723" target="_blank" rel="noopener">SINCE 2018 · 个人实验室</a>
+    <h1 class="nb-headline" style="margin:1.25rem 0 .75rem;font-size:clamp(2.25rem,6vw,3.75rem)">東雲的秘密基地</h1>
+    <a class="nb-hero-badge--support" href="/#projects">整站已切换为 Nextra 风格 UI 组件 <span style="font-weight:600">→</span></a>
+    <p class="nb-muted" style="max-width:44rem;margin:1.25rem auto 0;font-size:clamp(1rem,1.5vw,1.0625rem)">
+      一个很普通的个人实验室，放着自己折腾出来的小工具和小实验。<br>
+      Don't forget to keep on thinking.
+    </p>
+    <div class="nb-row" style="justify-content:center;margin-top:2rem">
+      <a class="nb-btn nb-btn--hero" href="/#projects">浏览项目</a>
+      <a class="nb-btn nb-btn--outline nb-btn--lg" href="https://github.com/nd002723" target="_blank" rel="noopener">GitHub 主页</a>
+      <a class="nb-btn nb-btn--ghost nb-btn--lg" href="/ui/">UI 组件</a>
+    </div>
+  </section>
+
+  <section class="nb-wrap site-section" id="projects">
+    <div class="site-section__head">
+      <h2>项目</h2>
+      <p class="nb-mono nb-faint" style="font-size:.8125rem">7 个仍在线的页面</p>
+    </div>
+    <div class="nb-cards">
+        <a class="nb-card-link" href="EPL/">
+          <span class="nb-card-link__icon" aria-hidden="true">易</span>
+          <h3 class="nb-card-link__title">易码再现</h3>
+          <p class="nb-card-link__desc">不安装易语言也能读懂别人复制给你的易格式代码，粘贴源码即可还原缩进与着色。</p>
+          <span class="nb-badge" style="align-self:flex-start;margin-top:.5rem">工具</span>
+        </a>
+        <a class="nb-card-link" href="carnival/">
+          <span class="nb-card-link__icon" aria-hidden="true">JS</span>
+          <h3 class="nb-card-link__title">Carnival.js</h3>
+          <p class="nb-card-link__desc">一个能让你的网站 high 起来的 JS，一行 script 就能给页面加点节奏。</p>
+          <span class="nb-badge" style="align-self:flex-start;margin-top:.5rem">脚本</span>
+        </a>
+        <a class="nb-card-link" href="runcode/">
+          <span class="nb-card-link__icon" aria-hidden="true" style="font-size:.8125rem">{ }</span>
+          <h3 class="nb-card-link__title">Run Code</h3>
+          <p class="nb-card-link__desc">在线运行 HTML 代码，写完点运行，结果在新窗口里直接跑出来。</p>
+          <span class="nb-badge" style="align-self:flex-start;margin-top:.5rem">工具</span>
+        </a>
+        <a class="nb-card-link" href="math/">
+          <span class="nb-card-link__icon" aria-hidden="true">±</span>
+          <h3 class="nb-card-link__title">Let's Math</h3>
+          <p class="nb-card-link__desc">快速、简约的算数练习 Web App，加减乘除乘方五种模式，支持离线。</p>
+          <span class="nb-badge" style="align-self:flex-start;margin-top:.5rem">应用</span>
+        </a>
+        <a class="nb-card-link" href="mofasearch/">
+          <span class="nb-card-link__icon" aria-hidden="true">螺</span>
+          <h3 class="nb-card-link__title">神奇海螺</h3>
+          <p class="nb-card-link__desc">有膜法的搜索引擎，靠模糊匹配抓关键词，快速找到你想去的站点。</p>
+          <span class="nb-badge" style="align-self:flex-start;margin-top:.5rem">搜索</span>
+        </a>
+        <a class="nb-card-link" href="socialist-core/">
+          <span class="nb-card-link__icon" aria-hidden="true">24</span>
+          <h3 class="nb-card-link__title">核心价值观编码器</h3>
+          <p class="nb-card-link__desc">全部内容使用社会主义核心价值观编写，没背过二十四字的人是无法理解的。</p>
+          <span class="nb-badge" style="align-self:flex-start;margin-top:.5rem">玩具</span>
+        </a>
+        <a class="nb-card-link" href="adobedl/">
+          <span class="nb-card-link__icon" aria-hidden="true">Ae</span>
+          <h3 class="nb-card-link__title">Adobe 软件下载</h3>
+          <p class="nb-card-link__desc">独特的网页设计，提供 Adobe 全系软件下载，Mac 版已提供。</p>
+          <span class="nb-badge" style="align-self:flex-start;margin-top:.5rem">资源</span>
+        </a>
+    </div>
+  </section>
+
+  <section class="nb-wrap site-section" id="team">
+    <div class="site-section__head">
+      <h2>团队</h2>
+      <p class="nb-faint" style="font-size:.8125rem">東雲和他的小伙伴们</p>
+    </div>
+    <div class="site-people">
+      <a class="site-person" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2598373754&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener">
+        <img src="/img/Tomoki.jpg" alt="東雲智希" width="48" height="48" loading="lazy">
+        <span><span class="site-person__name">東雲智希</span><span class="site-person__bio">全群最菜的程序员</span></span>
+      </a>
+      <a class="site-person" href="https://space.bilibili.com/8594228/" target="_blank" rel="noopener">
+        <img src="/img/sPlsH.png" alt="sPlsH晓玖君" width="48" height="48" loading="lazy">
+        <span><span class="site-person__name">sPlsH晓玖君</span><span class="site-person__bio">超级咕咕神</span></span>
+      </a>
+      <a class="site-person" href="https://space.bilibili.com/8042745/" target="_blank" rel="noopener">
+        <img src="/img/little deng.png" alt="小邓邓瞪瞪瞪" width="48" height="48" loading="lazy">
+        <span><span class="site-person__name">小邓邓瞪瞪瞪</span><span class="site-person__bio">永远只会发兔子的凳子</span></span>
+      </a>
+      <a class="site-person" href="https://github.com/Malik6-X" target="_blank" rel="noopener">
+        <img src="/img/Malik.jpg" alt="Malik(小草)" width="48" height="48" loading="lazy">
+        <span><span class="site-person__name">Malik(小草)</span><span class="site-person__bio">群里的常驻小草</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="nb-wrap site-section" id="about">
+    <div class="site-section__head">
+      <h2>关于</h2>
+      <p class="nb-faint" style="font-size:.8125rem">还在折腾</p>
+    </div>
+    <div class="nb-alert" role="alert">
+      <div class="nb-alert__title">整站模板已切换为 Nextra / OpenWebF 风格</div>
+      <div class="nb-alert__desc">
+        <p>组件都在 <a href="/ui/">/ui/</a> 里，样式单文件在 <code>css/webf-ui.css</code>，改一处全站生效。子项目只换外壳，功能保持原样（Adobe 页面也套了模板，原页嵌在 iframe 里）。</p>
       </div>
     </div>
-  </div>
-  <div class="section" style="box-shadow:-5px -5px 30px #000 inset">
-    <div class="background-image" style="background-image : url('img/head.jpg');box-shadow:0 5px 30px #000"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="section">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <h1 class="text-left">Welcome to my Secret base</h1>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <p class="text-left">Don't forget to keep on thinking.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  </section>
+</main>
+
+<footer class="nb-footer">
+  <div class="nb-wrap nb-footer__grid">
+    <div>
+      <span class="nb-badge">CC BY-NC-SA 4.0</span>
+      <p class="nb-muted" style="margin:.5rem 0 0;font-size:.8125rem">
+        © 2018–<span data-year>2026</span> <a href="https://github.com/nd002723" target="_blank" rel="noopener">nd002723</a> · 東雲的秘密基地
+      </p>
+    </div>
+    <div class="nb-footer__links">
+      <a href="https://github.com/nd002723/nd002723.github.io" target="_blank" rel="noopener">源码</a>
+      <a href="/">返回首页</a>
+      <a href="/ui/">UI 组件</a>
+      <div class="nb-sep" aria-hidden="true"></div>
+      <button class="nb-toggle" type="button" data-theme-toggle aria-label="切换主题">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"></path>
+        </svg>
+      </button>
     </div>
   </div>
-  <div class="section text-center" style="overflow: hidden;">
-    <video autoplay loop poster="./img/Tomoki.jpg" id="bgvid" class="hidden-xs">
-      <!--<source src="video/demo.mov" type="video/webm">
-<source src="video/demo.mov" type="video/mp4">-->
-      <source src="video/video.mp4" type="video/mp4">
-    </video>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-center">Our Project</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 text-left">
-          <ul class="media-list">
-            <li class="media">
-              <a class="pull-left" target="_blank" href="EPL/"><img class="media-object" src="img/bianping.png" height="64" width="64"></a>
-              <div class="media-body">
-                <h4 class="media-heading"><a class="pro" href="EPL/" target="_blank">易码再现</a></h4>
-                <p>不安装易语言，来阅读别人复制给你的E代码是非常困难的，易码再现，使易语言格式代码重生，轻松阅读。</p>
-              </div>
-            </li>
-			<li class="media">
-              <a class="pull-left" target="_blank" href="carnival/"><img class="media-object" src="img/bianping.png" height="64" width="64"></a>
-              <div class="media-body">
-                <h4 class="media-heading"><a class="pro" href="carnival/" target="_blank">Carnival.js</a></h4>
-                <p>一个能让你网站high起来的js</p>
-              </div>
-            </li>
-			<li class="media">
-              <a class="pull-left" target="_blank" href="adobedl/"><img class="media-object" src="img/bianping.png" height="64" width="64"></a>
-              <div class="media-body">
-                <h4 class="media-heading"><a class="pro" href="adobedl/" target="_blank">Adobe软件下载</a></h4>
-                <p>独特的网页设计，提供Adobe全系软件下载，Mac版已提供</p>
-              </div>
-            </li>
-			<li class="media">
-              <a class="pull-left" target="_blank" href="runcode/"><img class="media-object" src="img/bianping.png" height="64" width="64"></a>
-              <div class="media-body">
-                <h4 class="media-heading"><a class="pro" href="runcode/" target="_blank">Run Code</a></h4>
-                <p>在线运行你的HTML代码</p>
-              </div>
-            </li>
-			<li class="media">
-              <a class="pull-left" target="_blank" href="math/"><img class="media-object" src="img/bianping.png" height="64" width="64"></a>
-              <div class="media-body">
-                <h4 class="media-heading"><a class="pro" href="math/" target="_blank">Let's Math</a></h4>
-                <p>一个快速、简约、易用的快速出题WebAPP。采用Material Design 设计,相信你会喜欢它！</p>
-              </div>
-            </li>
-			<li class="media">
-              <a class="pull-left" target="_blank" href="mofasearch/"><img class="media-object" src="img/bianping.png" height="64" width="64"></a>
-              <div class="media-body">
-                <h4 class="media-heading"><a class="pro" href="mofasearch/" target="_blank">为什么不问问神奇海螺呢</a></h4>
-                <p>有膜法的搜索引擎，抓取关键词，快速找到适合你的站点。</p>
-              </div>
-            </li>
-			<li class="media">
-              <a class="pull-left" target="_blank" href="socialist-core/"><img class="media-object" src="img/bianping.png" height="64" width="64"></a>
-              <div class="media-body">
-                <h4 class="media-heading"><a class="pro" href="socialist-core/" target="_blank">社会主义核心价值也可以是密码</a></h4>
-                <p>全部内容使用社会主义核心价值观编写，没有熟记社会主义核心价值观的人是无法理解的。</p>
-              </div>
-            </li>
-			<li class="media">
-              <a class="pull-left" target="_blank" href="new"><img class="media-object" src="img/bianping.png" height="64" width="64"></a>
-              <div class="media-body">
-                <h4 class="media-heading"><a class="pro" href="new" target="_blank">看看更多的网页</a></h4>
-                <p>此处只放置了几个具有代表性的网页，去看看更多？</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="hidden-xs section" style="box-shadow:0px -5px 30px #000;background-color: #272B30;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h1 class="text-center">Team</h1>
-          <p class="text-center">東雲和他的小伙伴们.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-2">
-          <a href="https://nd002723.github.io" target="_blank"><img src="img/Tomoki.jpg" class="img-circle img-responsive" height="100" width="100"></a>
-        </div>
-        <div class="col-md-4">
-          <h3 class="text-left"><a class="gowebsite" href="http://wpa.qq.com/msgrd?v=3&uin=2598373754&site=qq&menu=yes" target="_blank">東雲智希</a></h3>
-          <p class="text-left">一只全群最菜的程序员</p>
-        </div>
-        <div class="col-md-2">
-          <a class="gowebsite" href="https://space.bilibili.com/8594228/" target="_blank"><img src="img/sPlsH.png" class="img-circle img-responsive" height="100" width="100"></a>
-        </div>
-        <div class="col-md-4">
-          <h3 class="text-left"><a class="gowebsite" class="gowebsite" href="https://space.bilibili.com/8594228/" target="_blank">sPlsH晓玖君</a></h3>
-          <p class="text-left">超级咕咕神</p>
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-md-2">
-          <a class="gowebsite" href="https://space.bilibili.com/8042745/" target="_blank"><img src="img/little deng.png" class="img-circle img-responsive" height="100" width="100"></a>
-        </div>
-        <div class="col-md-4">
-          <h3 class="text-left"><a class="gowebsite" href="https://space.bilibili.com/8042745/" target="_blank">小邓邓瞪瞪瞪</a></h3>
-          <p class="text-left">永远只会发兔子的凳子</p>
-        </div>
-      </div>
-	</div>
-  </div>
-  <footer class="section section-primary" style="box-shadow: 0 -5px 30px #0074D9">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <h1>東雲的秘密基地</h1>
-          <p>&copy;2018 <a href=" ">東雲的秘密基地</a> All Rights Reserved.版权所有</p>
-		  <script language=JavaScript> 
-          document.write("最后更新时间: " + document.lastModified + "") 
-          </script>
-        </div>
-        <div class="col-sm-6">
-          <p class="text-info text-right">
-            <br>
-            <br>
-          </p>
-          <div class="row">
-            <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
-              <a target="_blank" href=""><i class="fa fa-3x fa-fw text-inverse fa-github"></i></a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 hidden-xs text-right">
-              <a href="" target="_blank"><i class="fa fa-3x fa-fw text-inverse fa-github"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-<body oncontextmenu="window.event.returnValue=false" 
-onkeypress="window.event.returnValue=false" 
-onkeydown="window.event.returnValue=false" 
-onkeyup="window.event.returnValue=false" 
-ondragstart="window.event.returnValue=false" 
-onselectstart="event.returnValue=false"> 
+</footer>
+
+<script src="/js/site.js"></script>
+<script src="/js/bgm.js" defer></script>
+<script src="/js/router.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,182 @@
+/* ==========================================================================
+ *  site.css — 页面级布局，全部基于 css/webf-ui.css 的令牌与组件
+ *  令牌沿用 nextjs-nextra-starter：--nb-background / --nb-foreground /
+ *  --nb-muted-foreground / --nb-border / --nb-primary / --nb-radius*
+ * ========================================================================== */
+
+/* 让页脚在短页面也贴住底部 */
+body.nb { display: flex; flex-direction: column; min-height: 100vh; }
+body.nb > main { flex: 1 0 auto; }
+body.nb > footer.nb-footer { flex: none; }
+
+/* 首屏 */
+.site-hero {
+  position: relative;
+  padding-block: clamp(3rem, 8vw, 5.5rem) clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  overflow: hidden;
+}
+.site-hero::before {
+  content: "";
+  position: absolute;
+  inset: -60% -20% auto -20%;
+  height: 26rem;
+  background:
+    radial-gradient(circle, rgb(37 99 235 / .18) 0%, rgb(37 99 235 / 0) 70%),
+    radial-gradient(circle at 85% 20%, rgb(34 197 94 / .14) 0%, rgb(34 197 94 / 0) 72%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+[data-theme="dark"] .site-hero::before {
+  background:
+    radial-gradient(circle, rgb(37 99 235 / .18) 0%, rgb(37 99 235 / 0) 70%),
+    radial-gradient(circle at 85% 20%, rgb(34 211 238 / .16) 0%, rgb(34 211 238 / 0) 72%);
+}
+.site-hero > * { position: relative; }
+.site-hero p {
+  max-width: 44rem;
+  margin-inline: auto;
+  color: var(--nb-muted-foreground);
+  font-size: clamp(1rem, 1.5vw, 1.0625rem);
+}
+
+/* 页面标题区（子页） */
+.site-page-head {
+  padding-block: 2.5rem 1.5rem;
+}
+.site-page-head h1 { margin: .75rem 0 .5rem; }
+.site-page-head p { max-width: 46rem; }
+
+/* 分区 */
+.site-section { padding-block: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--nb-border); }
+.site-section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.site-section__head h2 { margin: 0; font-size: 1.5rem; font-weight: 600; letter-spacing: -.015em; }
+.site-section__head p { margin: 0; font-size: .875rem; color: var(--nb-muted-foreground); }
+
+/* 成员 */
+.site-people { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
+.site-person {
+  display: flex;
+  align-items: center;
+  gap: .875rem;
+  padding: .875rem 1rem;
+  border: 1px solid var(--nb-border);
+  border-radius: var(--nb-radius-lg);
+  background: var(--nb-card);
+  text-decoration: none !important;
+  transition: border-color var(--nb-duration) var(--nb-ease), box-shadow var(--nb-duration) var(--nb-ease);
+}
+.site-person:hover { border-color: var(--nb-primary); box-shadow: var(--nb-shadow-sm); }
+.site-person img { width: 48px; height: 48px; border-radius: 999px; object-fit: cover; flex: none; border: 1px solid var(--nb-border); }
+.site-person__name { display: block; font-weight: 600; color: var(--nb-foreground); }
+.site-person__bio { display: block; font-size: .8125rem; color: var(--nb-muted-foreground); }
+
+/* 音乐列表 */
+.site-tracks { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.site-track {
+  display: flex;
+  align-items: center;
+  gap: .875rem;
+  padding: .625rem .875rem;
+  border: 1px solid var(--nb-border);
+  border-radius: var(--nb-radius-lg);
+  background: var(--nb-card);
+  transition: border-color var(--nb-duration) var(--nb-ease), background-color var(--nb-duration) var(--nb-ease);
+}
+.site-track:hover { border-color: var(--nb-primary); }
+.site-track.is-playing { border-color: var(--nb-primary); background: color-mix(in oklab, var(--nb-primary) 8%, var(--nb-card)); }
+.site-track__play {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+  border: 1px solid var(--nb-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--nb-primary);
+  cursor: pointer;
+}
+.site-track__play:hover { background: var(--nb-muted); }
+.site-track__name { flex: 1; min-width: 0; font-size: .9375rem; color: var(--nb-foreground); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.site-track__index { color: var(--nb-muted-foreground); font-size: .75rem; }
+
+/* 搜索页 */
+.site-search { padding-block: 2.5rem 1rem; text-align: center; }
+.site-search h1 { margin: .75rem 0 .5rem; }
+.site-search p { color: var(--nb-muted-foreground); margin: 0; }
+.site-search__form { max-width: 34rem; margin: 2rem auto 0; }
+.site-search__form input {
+  width: 100%;
+  padding: .875rem 1.125rem;
+  border: 1px solid var(--nb-input);
+  border-radius: 999px;
+  background: var(--nb-background);
+  color: var(--nb-foreground);
+  font-family: var(--nb-font-sans);
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: var(--nb-shadow-xs);
+}
+.site-search__form input:focus {
+  outline: none;
+  border-color: var(--nb-ring);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--nb-ring) 50%, transparent);
+}
+.site-results { max-width: 44rem; margin: 1.5rem auto 0; padding-bottom: 2rem; }
+.site-results a {
+  display: block;
+  padding: .625rem .875rem;
+  margin-bottom: .5rem;
+  border: 1px solid var(--nb-border);
+  border-radius: var(--nb-radius-lg);
+  background: var(--nb-card);
+  color: var(--nb-foreground);
+  font-size: .9375rem;
+  text-decoration: none;
+  transition: border-color var(--nb-duration) var(--nb-ease), background-color var(--nb-duration) var(--nb-ease);
+}
+.site-results a:hover {
+  border-color: var(--nb-primary);
+  background: color-mix(in oklab, var(--nb-primary) 6%, var(--nb-card));
+  text-decoration: none;
+}
+.site-hint { text-align: center; font-size: .8125rem; color: var(--nb-muted-foreground); margin-top: 1rem; }
+
+/* 编解码双栏 */
+.site-codec { display: grid; gap: 1rem; align-items: center; }
+@media (min-width: 980px) { .site-codec { grid-template-columns: 1fr auto 1fr; } }
+.site-codec textarea { min-height: 15rem; font-family: var(--nb-font-sans); font-size: .9375rem; }
+.site-codec__actions { display: flex; flex-direction: column; gap: .5rem; }
+@media (max-width: 979px) { .site-codec__actions { flex-direction: row; flex-wrap: wrap; } }
+
+/* 嵌入页 */
+.site-embed { position: fixed; inset: var(--nb-nav-h) 0 0 0; }
+.site-embed iframe { width: 100%; height: 100%; border: 0; display: block; background: #000; }
+
+/* 面板（子页面沿用旧面板语义，映射到卡片令牌） */
+.nb-panel {
+  border: 1px solid var(--nb-border);
+  border-radius: var(--nb-radius-xl);
+  background: var(--nb-card);
+  overflow: hidden;
+}
+.nb-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .625rem 1rem;
+  border-bottom: 1px solid var(--nb-border);
+  background: var(--nb-muted);
+  font-size: .8125rem;
+  font-weight: 500;
+  color: var(--nb-muted-foreground);
+}
+.nb-panel__body { padding: 1rem; }

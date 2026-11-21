@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI 组件 · 東雲的秘密基地</title>
+  <meta name="description" content="站点 UI 组件库：设计令牌、按钮、卡片、提示条、表单、手风琴、代码块、步骤、表格。">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="/img/site-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/webf-ui.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <style>
+    .ui-doc { padding-bottom: 4rem; }
+    .ui-block { padding-block: 2rem; border-top: 1px solid var(--nb-border); }
+    .ui-block__head { margin-bottom: 1.25rem; }
+    .ui-block__head h2 { margin: 0 0 .35rem; font-size: 1.25rem; font-weight: 600; letter-spacing: -.01em; }
+    .ui-block__head p { margin: 0; color: var(--nb-muted-foreground); font-size: .875rem; }
+    .ui-block__demo { padding: 1.25rem; border: 1px solid var(--nb-border); border-bottom: 0; border-radius: var(--nb-radius-lg) var(--nb-radius-lg) 0 0; background: color-mix(in oklab, var(--nb-muted) 60%, var(--nb-background)); }
+    .ui-block .nb-code { margin: 0; border-radius: 0 0 var(--nb-radius-lg) var(--nb-radius-lg); }
+    .ui-table-wrap { overflow-x: auto; }
+    .ui-swatches { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+    .ui-swatch { display: inline-flex; align-items: center; justify-content: center; min-width: 5.5rem; height: 2.5rem; padding-inline: .75rem; border-radius: var(--nb-radius-md); color: #fff; font-family: var(--nb-font-mono); font-size: .75rem; }
+  </style>
+</head>
+<body class="nb">
+<header class="nb-navbar">
+  <div class="nb-navbar__inner">
+    <a class="nb-navbar__brand" href="/">
+      <img class="nb-navbar__logo" src="/img/site-icon.svg" alt="" width="32" height="32">
+      <span>東雲的秘密基地</span>
+    </a>
+    <nav class="nb-navbar__menu" aria-label="主导航">
+      <a href="/">首页</a>
+      <a href="/#projects">项目</a>
+      <a href="/ui/" aria-current="page">组件</a>
+      <a href="https://github.com/nd002723" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="nb-navbar__actions">
+      <button class="nb-toggle" type="button" data-theme-toggle aria-label="切换主题"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"></path></svg></button>
+      <button class="nb-toggle nb-navbar__toggle" type="button" data-drawer-toggle aria-expanded="false" aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 12h16M4 16h16"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nb-mobile-menu" data-open="false">
+  <a href="/">首页</a>
+  <a href="/#projects">项目</a>
+  <a href="/ui/">组件</a>
+  <a href="https://github.com/nd002723" target="_blank" rel="noopener">GitHub</a>
+</div>
+<main class="nb-wrap ui-doc">
+  <div class="site-page-head">
+    <span class="nb-badge nb-badge--primary">DESIGN SYSTEM · v1</span>
+    <h1 class="nb-headline" style="font-size:clamp(1.75rem,4vw,2.5rem)">UI 组件</h1>
+    <p class="nb-muted" style="margin:0">整站页面都用这一套组件。实现文件是 <code>css/webf-ui.css</code>，取自 Nextra 4 + Tailwind CSS 4 的 <a href="https://github.com/pdsuwwz/nextjs-nextra-starter" target="_blank" rel="noopener">nextjs-nextra-starter</a> 设计系统，外观与 <a href="https://openwebf.com/" target="_blank" rel="noopener">openwebf.com</a> 一致。子项目只要 <code>&lt;link href="/css/webf-ui.css"&gt;</code> 就能复用。</p>
+  </div>
+    <section class="ui-block" id="tokens">
+      <div class="ui-block__head"><h2>设计令牌</h2><p>颜色、圆角、字体由 CSS 变量下发，<code>[data-theme="dark"]</code> 时整套自动切换。</p></div>
+      <div class="ui-table-wrap">
+        <table class="nb-table">
+          <thead><tr><th>变量</th><th>浅色</th><th>深色</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td><code>--nb-background</code></td><td>hsl(0 0% 100%)</td><td>hsl(0 0% 3.9%)</td><td>页面底色</td></tr>
+            <tr><td><code>--nb-foreground</code></td><td>hsl(0 0% 3.9%)</td><td>hsl(0 0% 98%)</td><td>正文</td></tr>
+            <tr><td><code>--nb-primary</code></td><td>hsl(221.2 83.2% 53.3%)</td><td>hsl(217.2 91.2% 59.8%)</td><td>主按钮 / 链接</td></tr>
+            <tr><td><code>--nb-muted-foreground</code></td><td>hsl(215.4 16.3% 46.9%)</td><td>hsl(215 20.2% 65.1%)</td><td>次级文字</td></tr>
+            <tr><td><code>--nb-border</code></td><td>hsl(0 0% 89.8%)</td><td>hsl(0 0% 14.9%)</td><td>描边</td></tr>
+            <tr><td><code>--nb-radius</code></td><td colspan="2">.6rem（lg +2px，sm -2px）</td><td>圆角</td></tr>
+            <tr><td><code>--nb-nav-h</code></td><td colspan="2">64px</td><td>导航高度</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ui-swatches">
+        <span class="ui-swatch" style="background:var(--nb-primary)">primary</span>
+        <span class="ui-swatch" style="background:var(--nb-secondary);color:var(--nb-secondary-foreground)">secondary</span>
+        <span class="ui-swatch" style="background:var(--nb-muted);color:var(--nb-muted-foreground)">muted</span>
+        <span class="ui-swatch" style="background:var(--nb-destructive)">destructive</span>
+        <span class="ui-swatch" style="background:var(--nb-warning)">warning</span>
+        <span class="ui-swatch" style="background:var(--nb-background);color:var(--nb-foreground);border:1px solid var(--nb-border)">background</span>
+      </div>
+    </section>
+    <section class="ui-block" id="按钮 Button">
+      <div class="ui-block__head"><h2>按钮 Button</h2><p>六种变体、四种尺寸，对应 <code>ui/button.tsx</code> 的 variant / size。</p></div>
+      <div class="ui-block__demo">        <div class="nb-row">
+          <button class="nb-btn" type="button">默认</button>
+          <button class="nb-btn nb-btn--outline" type="button">描边</button>
+          <button class="nb-btn nb-btn--secondary" type="button">次要</button>
+          <button class="nb-btn nb-btn--ghost" type="button">幽灵</button>
+          <button class="nb-btn nb-btn--link" type="button">链接</button>
+          <button class="nb-btn" type="button" disabled>禁用</button>
+        </div>
+        <div class="nb-row" style="margin-top:.75rem">
+          <button class="nb-btn nb-btn--xs" type="button">xs</button>
+          <button class="nb-btn nb-btn--sm" type="button">sm</button>
+          <button class="nb-btn" type="button">default</button>
+          <button class="nb-btn nb-btn--lg" type="button">lg</button>
+          <a class="nb-btn nb-btn--hero" href="#">渐变主按钮</a>
+        </div></div>
+      <div class="nb-code nb-code--wrap"><pre id="ui-c1">&lt;button class="nb-btn"&gt;默认&lt;/button&gt;
+&lt;button class="nb-btn nb-btn--outline"&gt;描边&lt;/button&gt;
+&lt;button class="nb-btn nb-btn--secondary"&gt;次要&lt;/button&gt;
+&lt;button class="nb-btn nb-btn--ghost"&gt;幽灵&lt;/button&gt;
+&lt;a class="nb-btn nb-btn--hero"&gt;渐变主按钮&lt;/a&gt;</pre><button class="nb-code__copy" type="button" data-copy="#ui-c1">复制</button></div>
+    </section>
+    <section class="ui-block" id="卡片 Card">
+      <div class="ui-block__head"><h2>卡片 Card</h2><p>标准卡片（<code>ui/card.tsx</code>）与首页使用的可点击卡片。</p></div>
+      <div class="ui-block__demo">        <div class="nb-cards">
+          <div class="nb-card">
+            <div class="nb-card__header">
+              <h3 class="nb-card__title">标准卡片</h3>
+              <p class="nb-card__desc">1px 描边 + 圆角 + 轻阴影</p>
+            </div>
+            <div class="nb-card__content"><p class="nb-muted" style="margin:0;font-size:.875rem">内容区 1.5rem 内边距。</p></div>
+            <div class="nb-card__footer"><button class="nb-btn nb-btn--outline nb-btn--sm" type="button">操作</button></div>
+          </div>
+          <a class="nb-card-link" href="#">
+            <span class="nb-card-link__icon">易</span>
+            <h3 class="nb-card-link__title">可点击卡片</h3>
+            <p class="nb-card-link__desc">悬停描边变主色并轻微上浮，首页项目卡用的就是它。</p>
+          </a>
+          <div class="nb-card nb-card--flat">
+            <div class="nb-card__header"><h3 class="nb-card__title">扁平卡片</h3><p class="nb-card__desc">去掉阴影，用作内容面板。</p></div>
+          </div>
+        </div></div>
+      <div class="nb-code nb-code--wrap"><pre id="ui-c2">&lt;div class="nb-cards"&gt;
+  &lt;div class="nb-card"&gt;
+    &lt;div class="nb-card__header"&gt;
+      &lt;h3 class="nb-card__title"&gt;标题&lt;/h3&gt;
+      &lt;p class="nb-card__desc"&gt;说明&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="nb-card__content"&gt;内容&lt;/div&gt;
+    &lt;div class="nb-card__footer"&gt;操作&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre><button class="nb-code__copy" type="button" data-copy="#ui-c2">复制</button></div>
+    </section>
+    <section class="ui-block" id="提示条 Alert">
+      <div class="ui-block__head"><h2>提示条 Alert</h2><p>对应 <code>ui/alert.tsx</code>：标题 + 描述两段式。</p></div>
+      <div class="ui-block__demo">        <div class="nb-alert" role="alert">
+          <div class="nb-alert__title">默认提示</div>
+          <div class="nb-alert__desc"><p>用来说明一条需要注意的信息。</p></div>
+        </div>
+        <div class="nb-alert nb-alert--destructive" role="alert" style="margin-top:.75rem">
+          <div class="nb-alert__title">危险提示</div>
+          <div class="nb-alert__desc"><p>破坏性操作或错误状态。</p></div>
+        </div></div>
+      <div class="nb-code nb-code--wrap"><pre id="ui-c3">&lt;div class="nb-alert" role="alert"&gt;
+  &lt;div class="nb-alert__title"&gt;标题&lt;/div&gt;
+  &lt;div class="nb-alert__desc"&gt;&lt;p&gt;描述&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</pre><button class="nb-code__copy" type="button" data-copy="#ui-c3">复制</button></div>
+    </section>
+    <section class="ui-block" id="徽标 Badge">
+      <div class="ui-block__head"><h2>徽标 Badge</h2><p>等宽徽标、流动渐变 NEW 徽标、蓝底胶囊。</p></div>
+      <div class="ui-block__demo">        <div class="nb-row">
+          <span class="nb-badge">v1.0.0</span>
+          <span class="nb-badge nb-badge--primary">primary</span>
+          <span class="nb-badge nb-badge--new">NEW</span>
+          <span class="nb-pill"><span style="width:.375rem;height:.375rem;border-radius:999px;background:#22C55E"></span>标签</span>
+        </div></div>
+      <div class="nb-code nb-code--wrap"><pre id="ui-c4">&lt;span class="nb-badge"&gt;v1.0.0&lt;/span&gt;
+&lt;span class="nb-badge nb-badge--new"&gt;NEW&lt;/span&gt;
+&lt;span class="nb-pill"&gt;标签&lt;/span&gt;</pre><button class="nb-code__copy" type="button" data-copy="#ui-c4">复制</button></div>
+    </section>
+    <section class="ui-block" id="表单 Form">
+      <div class="ui-block__head"><h2>表单 Form</h2><p>输入框、文本域、下拉与标签，焦点态是 3px 主色光环。</p></div>
+      <div class="ui-block__demo">        <div class="nb-cards" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,16rem),1fr))">
+          <div class="nb-field">
+            <label class="nb-label" for="demo-input">关键字</label>
+            <input class="nb-input" id="demo-input" type="text" placeholder="输入点什么…">
+          </div>
+          <div class="nb-field">
+            <label class="nb-label" for="demo-select">选择</label>
+            <select class="nb-select" id="demo-select"><option>默认</option><option>另一个</option></select>
+          </div>
+        </div>
+        <div class="nb-field" style="margin-top:.75rem">
+          <label class="nb-label" for="demo-textarea">文本域</label>
+          <textarea class="nb-textarea" id="demo-textarea" placeholder="多行内容…"></textarea>
+        </div></div>
+      <div class="nb-code nb-code--wrap"><pre id="ui-c5">&lt;div class="nb-field"&gt;
+  &lt;label class="nb-label"&gt;关键字&lt;/label&gt;
+  &lt;input class="nb-input" type="text" placeholder="输入点什么…"&gt;
+&lt;/div&gt;</pre><button class="nb-code__copy" type="button" data-copy="#ui-c5">复制</button></div>
+    </section>
+    <section class="ui-block" id="手风琴 Accordion">
+      <div class="ui-block__head"><h2>手风琴 Accordion</h2><p>点击展开，箭头旋转 180°，对应 <code>ui/accordion.tsx</code>。</p></div>
+      <div class="ui-block__demo">        <div class="nb-accordion">
+          <details class="nb-accordion__item">
+            <summary class="nb-accordion__trigger">
+              <span>页面是怎么组织的？</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg>
+            </summary>
+            <div class="nb-accordion__panel">所有页面共用 <code>css/webf-ui.css</code> 与 <code>css/site.css</code>，改一份全站同步。</div>
+          </details>
+          <details class="nb-accordion__item">
+            <summary class="nb-accordion__trigger">
+              <span>子项目怎么接入？</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg>
+            </summary>
+            <div class="nb-accordion__panel">引入同一个主站的 CSS / JS 路径即可，功能代码保持原样。</div>
+          </details>
+        </div></div>
+      <div class="nb-code nb-code--wrap"><pre id="ui-c6">&lt;details class="nb-accordion__item"&gt;
+  &lt;summary class="nb-accordion__trigger"&gt;标题&lt;/summary&gt;
+  &lt;div class="nb-accordion__panel"&gt;内容&lt;/div&gt;
+&lt;/details&gt;</pre><button class="nb-code__copy" type="button" data-copy="#ui-c6">复制</button></div>
+    </section>
+    <section class="ui-block" id="代码块 Code">
+      <div class="ui-block__head"><h2>代码块 Code</h2><p>带复制按钮；<code>nb-code--wrap</code> 用于长行折行。</p></div>
+      <div class="ui-block__demo">        <div class="nb-code"><pre id="ui-code-sample">npm create next-app --template nextra</pre>
+          <button class="nb-code__copy" type="button" data-copy="#ui-code-sample">复制</button></div>
+        <p class="nb-muted" style="margin-top:.75rem;font-size:.875rem">行内代码：<code>css/webf-ui.css</code>、<code>data-theme="dark"</code>。</p></div>
+      <div class="nb-code nb-code--wrap"><pre id="ui-c7">&lt;div class="nb-code"&gt;
+  &lt;pre&gt;你的代码&lt;/pre&gt;
+  &lt;button class="nb-code__copy" data-copy="#id"&gt;复制&lt;/button&gt;
+&lt;/div&gt;</pre><button class="nb-code__copy" type="button" data-copy="#ui-c7">复制</button></div>
+    </section>
+    <section class="ui-block" id="步骤 Steps">
+      <div class="ui-block__head"><h2>步骤 Steps</h2><p>用于「怎么用」类说明，序号圆点带底色与描边。</p></div>
+      <div class="ui-block__demo">        <ol class="nb-steps">
+          <li><span class="nb-steps__title">引入样式</span><br>页面头部 link <code>css/webf-ui.css</code> 与 <code>css/site.css</code>。</li>
+          <li><span class="nb-steps__title">套根类</span><br>给 <code>body</code> 加 <code>class="nb"</code>。</li>
+          <li><span class="nb-steps__title">拼组件</span><br>按本页例子组合 <code>nb-btn</code> / <code>nb-card</code> 等。</li>
+        </ol></div>
+      <div class="nb-code nb-code--wrap"><pre id="ui-c8">&lt;ol class="nb-steps"&gt;
+  &lt;li&gt;&lt;span class="nb-steps__title"&gt;第一步&lt;/span&gt; 说明&lt;/li&gt;
+&lt;/ol&gt;</pre><button class="nb-code__copy" type="button" data-copy="#ui-c8">复制</button></div>
+    </section>
+    <section class="ui-block" id="表格 Table">
+      <div class="ui-block__head"><h2>表格 Table</h2><p>数据展示用，表头带底色。</p></div>
+      <div class="ui-block__demo">        <table class="nb-table">
+          <thead><tr><th>组件</th><th>类名</th><th>来源</th></tr></thead>
+          <tbody>
+            <tr><td>按钮</td><td><code>.nb-btn</code></td><td>ui/button.tsx</td></tr>
+            <tr><td>卡片</td><td><code>.nb-card</code></td><td>ui/card.tsx</td></tr>
+            <tr><td>提示条</td><td><code>.nb-alert</code></td><td>ui/alert.tsx</td></tr>
+          </tbody>
+        </table></div>
+      <div class="nb-code nb-code--wrap"><pre id="ui-c9">&lt;table class="nb-table"&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;列&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;值&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</pre><button class="nb-code__copy" type="button" data-copy="#ui-c9">复制</button></div>
+    </section>
+    <section class="ui-block" id="播放器-Player">
+      <div class="ui-block__head"><h2>播放器 Player</h2><p>导航栏里的 BGM 播放器：<code>js/bgm.js</code> 自动注入到 <code>.nb-navbar__actions</code>，曲库来自 <code>/media/playlist.json</code>。鼠标悬停（或点曲名 / Tab 聚焦）展开面板，可以选曲、拖动调音量、点喇叭一键静音；窄屏和触屏会多出一个列表按钮，面板变成贴导航栏下方的整宽抽屉。</p></div>
+      <div class="ui-block__demo" style="min-height:20rem;align-items:flex-start">
+        <div class="nb-player is-open" role="group" aria-label="背景音乐示例">
+          <button class="nb-player__btn" type="button" aria-label="上一首"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14l-11-7z"></path></svg></button>
+          <button class="nb-player__btn nb-player__btn--play" type="button" aria-label="播放"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></button>
+          <button class="nb-player__btn" type="button" aria-label="下一首"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5l11 7-11 7z"></path></svg></button>
+          <button class="nb-player__btn nb-player__btn--menu" type="button" aria-label="播放列表" title="播放列表 / 音量"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="7" r="1.4"></circle><circle cx="6" cy="12" r="1.4"></circle><circle cx="6" cy="17" r="1.4"></circle><path d="M10 6.2h9v1.6h-9zM10 11.2h9v1.6h-9zM10 16.2h9v1.6h-9z"></path></svg></button>
+          <span class="nb-player__title">Teminite - Highflier</span>
+          <span class="nb-player__progress" aria-hidden="true"><span class="nb-player__bar" style="width:38%"></span></span>
+          <div class="nb-player__panel">
+            <div class="nb-player__panel-inner">
+              <div class="nb-player__label"><span>播放列表</span><span>23 首</span></div>
+              <div class="nb-player__list">
+                <button class="nb-player__track is-active" type="button"><i>▶</i><span>Teminite - Highflier</span></button>
+                <button class="nb-player__track" type="button"><i>2</i><span>Tobu - Dusk (Radio Edit)</span></button>
+                <button class="nb-player__track" type="button"><i>3</i><span>Axero - River (Original Mix)</span></button>
+                <button class="nb-player__track" type="button"><i>4</i><span>Bear Grillz - Gurlz</span></button>
+              </div>
+              <div class="nb-player__volume">
+                <button class="nb-player__mute" type="button" aria-label="静音" title="一键静音">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h3l4 3V6L7 9H4z"></path><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5M18 7a7 7 0 0 1 0 10"></path></svg>
+                </button>
+                <input type="range" min="0" max="1" step="0.01" value="0.6" aria-label="音量">
+                <output>60%</output>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nb-code nb-code--wrap"><pre id="ui-player-code">&lt;div class="nb-player"&gt;
+  &lt;button class="nb-player__btn" data-bgm="prev"&gt;…&lt;/button&gt;
+  &lt;button class="nb-player__btn nb-player__btn--play" data-bgm="toggle"&gt;…&lt;/button&gt;
+  &lt;button class="nb-player__btn" data-bgm="next"&gt;…&lt;/button&gt;
+  &lt;button class="nb-player__btn nb-player__btn--menu" data-bgm="menu"&gt;…&lt;/button&gt;
+  &lt;span class="nb-player__title"&gt;曲名&lt;/span&gt;
+  &lt;span class="nb-player__progress"&gt;&lt;span class="nb-player__bar"&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;div class="nb-player__panel"&gt;
+    &lt;div class="nb-player__panel-inner"&gt;
+      &lt;div class="nb-player__label"&gt;&lt;span&gt;播放列表&lt;/span&gt;&lt;span&gt;23 首&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="nb-player__list"&gt;
+        &lt;button class="nb-player__track is-active"&gt;&lt;i&gt;▶&lt;/i&gt;&lt;span&gt;曲名&lt;/span&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="nb-player__volume"&gt;
+        &lt;button class="nb-player__mute" data-bgm="mute"&gt;🔊&lt;/button&gt;
+        &lt;input type="range" min="0" max="1" step="0.01" data-bgm="volume"&gt;
+        &lt;output&gt;60%&lt;/output&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre><button class="nb-code__copy" type="button" data-copy="#ui-player-code">复制</button></div>
+    </section>
+</main>
+<footer class="nb-footer">
+  <div class="nb-wrap nb-footer__grid">
+    <div>
+      <span class="nb-badge">CC BY-NC-SA 4.0</span>
+      <p class="nb-muted" style="margin:.5rem 0 0;font-size:.8125rem">
+        © 2018–<span data-year>2026</span> <a href="https://github.com/nd002723" target="_blank" rel="noopener">nd002723</a> · 東雲的秘密基地
+      </p>
+    </div>
+    <div class="nb-footer__links">
+      <a href="https://github.com/nd002723/nd002723.github.io/blob/master/css/webf-ui.css" target="_blank" rel="noopener">webf-ui.css</a>
+      <a href="/">返回首页</a>
+      <a href="/ui/">UI 组件</a>
+      <div class="nb-sep" aria-hidden="true"></div>
+      <button class="nb-toggle" type="button" data-theme-toggle aria-label="切换主题"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"></path></svg></button>
+    </div>
+  </div>
+</footer>
+<script src="/js/site.js"></script>
+<script src="/js/bgm.js" defer></script>
+<script src="/js/router.js" defer></script>
+</body>
+</html>
